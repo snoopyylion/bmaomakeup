@@ -1,0 +1,31 @@
+{% load static %}
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p> <i class="fa-solid fa-paper-plane"></i> maryambolaji@gmail.com</p>
+                <p><i class="fa-solid fa-square-phone"></i> 09019586969</p>
+                <div class="social-icons">
+                    <a href=""> <i class="fa-brands fa-x-twitter"></i> </a>
+                    <a href="https://www.instagram.com/bmao.makeupartistry?igsh=dHUyOG1qOHQ5bzJh"> <i class="fa-brands fa-instagram"></i> </a>
+                    <a href=""> <i class="fa-brands fa-whatsapp"></i> </a>
+                    <a href=""> <i class="fa-brands fa-facebook"></i> </a>
+                </div>
+                <a href="{% load static %}images/my-cv.pdf" download class="btn btn2">Download Rate-Card</a>
+            </div>
+            <div class="contact-right">
+                <form  method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright © Hojo</p>
+    </div>
+</div>

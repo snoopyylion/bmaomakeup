@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% block header %} {% include 'header.html' %} {% endblock header %}
+{% block content %}
+<div id="about">
+    <div class="container">           
+        <div class="row">
+            <div class="about-col-1">
+                <img src="{{aboutm.pix.url}}" alt="">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1> 
+                <p>{{aboutm.content}}</p> 
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('Address')">Address</p>
+                    <p class="tab-links" onclick="opentab('Skills')">Opening Hours</p>
+                    <!-- <p class="tab-links" onclick="opentab('education')">Education</p> -->
+                </div> 
+                <div class="tab-contents active-tab" id="Address">
+                    <ul>
+                        <li><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2646417093915!2d3.38035767488343!3d6.614005893380107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b930124622e9d%3A0x568d1f8beb68449f!2sAbayomi%20Owulade%20Ave%2C%20Ikosi%20Ketu%20105102%2C%20Ikeja%2C%20Lagos!5e0!3m2!1sen!2sng!4v1694092050741!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></li>                        </ul>
+                </div>
+                <div class="tab-contents" id="Skills">
+                    <ul>
+                        <li><span>Monday</span><br> 9:00 am – 7:00 pm</li>
+                        <li><span>Tuesday</span><br> 9:00 am – 7:00 pm</li>
+                        <li><span>Wednesday</span><br> 9:00 am – 7:00 pm</li>
+                        <li><span>Thursday</span><br> 9:00 am – 7:00 pm</li>
+                        <li><span>Friday</span><br> 9:00 am – 7:00 pm</li>
+                        <li><span>Saturday</span><br> 8:00 am – 7:00 pm</li>
+                        <li><span>Sunday</span><br> 12:00 am – 5:00 pm</li>
+                    </ul>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- Services -->
+        <div id="services">
+            <div class="container">
+                <h1 class="sub-title">My Services</h1>
+                <div class="services-list">
+                    <div>
+                        <i class="fa-solid fa-spinner"></i>
+                        <h2>Owambe</h2>
+                        <p>Owambe is a party, Nigerian style. A celebration of life, an Owambe usually marks a milestone – a baby naming, wedding, and I guarantee you the best look to any Nigerian party.</p>
+                        
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-b"></i>
+                        <h2>Bridal</h2>
+                        <p>Bridal makeup is a type of makeup that's applied on a bride's wedding day to enhance her natural beauty. It's usually more complex and precise than regular makeup, and is meant to last the entire day.</p>
+                        
+                    </div>
+                    <div>
+            
+                        <i class="fa-brands fa-product-hunt"></i>
+                        <h2>Photoshoot</h2>
+                        <p>Models often wear more makeup for photoshoots than they would in everyday life. This is because the camera and lighting can wash out the skin's natural color and features. Heavier makeup helps to add definition and color back to the face, making it stand out in photographs.</p>
+                    </div>
+    
+                </div> 
+    
+            </div>
+        </div>
+    {% comment %} <!-- form  -->
+    <div id="appointment">
+        <div class="container">
+            <h1 class="sub-title">Book Appointment</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="text" name="phone" placeholder="Your number" required>
+                <input type="date" name="date" placeholder="Date" required>
+                <span class="spanner">
+                    <label for="makeupType">Make-up Type</label>
+                    <select class="form-control" name="service_type" id="makeupType">
+                      <option value="Owambe">Owambe</option>
+                      <option value="Photoshoot">Photoshoot</option>
+                      <option value="Bridal">Bridal look</option>
+                    </select>
+                </span>
+                <textarea name="additional_info" rows="6" placeholder="Additional Information"></textarea>
+                <button type="submit" class="btn btn2">Submit</button>
+            </form>
+        </div>
+    </div> {% endcomment %}
+        <!-- Portfolio --> 
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Works</h1>
+        <div class="work-list">
+            
+            {% for item in mworks %}
+                
+            <div class="work">
+                <img src="{{item.img.url}}">
+                <div class="layer">
+                    <h3>{{item.name}}</h3>
+                    <p>{{item.review}}</p>
+                    <a href="{% url 'gallery' %}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+        <a href="{% url 'gallery' %}" class="btn">See More</a>
+
+    </div>
+</div>
+{% endblock content %}
+
+<!-- contact -->
+{% block footer %} {% include 'footer.html' %} {% endblock footer %}

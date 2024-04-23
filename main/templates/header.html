@@ -1,0 +1,20 @@
+<div id="header">
+    <div class="container sticky-top">
+        <nav>
+            <img src="{{info.logo.url}}" class="logo"> 
+            <ul id="sidemenu">
+                <li class="list-item"><a href="#about">About</a></li>
+                <li class="list-item"><a href="#services">Services</a></li>
+                <li class="list-item"><a href="{% url 'gallery' %}">Gallery</a></li>
+                <li class="list-item"><a href="#contact">Contact Us</a></li>
+                <i class="fas fa-regular fa-circle-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fas fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <!-- <p>Makeup-artist</p> -->
+            <h1>Hi there, I'm BMAO</h1>
+            <h1>A <span>Make-Up Artist</span><br> From Nigeria</h1>
+        </div>
+    </div>
+</div>

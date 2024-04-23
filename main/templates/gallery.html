@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="containerr">
+    <div class="gallery">
+        {% for item in mworks %}
+        <a href="{{item.img.url}}" data-lightbox="models" data-title="{{item.review}}">
+            <img src="{{item.img.url}}" alt="">
+        </a>
+        {% endfor %}
+        <a href="{% url 'home' %}" class="btns">Back Home</a>
+    </div>
+</div>
+{% endblock content %}
+{% block footer %} {% include 'footer.html' %} {% endblock footer %}
